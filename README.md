@@ -15,8 +15,11 @@ with **python_scripts** as your working directory. You have to make sure that py
 Little needs to be modified in the simulationsRepresentatives.py file in that case. Just make sure that the **patientsCSV** folder contains the CSV file with your cell specifications. Each row is a cell and needs to have 4 columns: 
 
 column 1: x-position
+
 column 2: y-position
+
 column 3: z-position **this is set to 0 as we are simulating in 2D**
+
 column 4: cell type (1=CD4 T cell, 2=Tumor cell, 3=CD8 T cell, 4=Stroma, 5=Macrophage)
 
 If this is saved as **patientX.csv**, then on **line 62** of the simulationsRepresentatives.py file, add **patientX** to the array (do not include the ".csv"). If you don't want to run the simulations for the two virtual representatives, you can delete them from the array. 
