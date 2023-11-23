@@ -88,7 +88,7 @@
 	
 	<overall>		
 		<!-- avant:10080 -->
-		<max_time units="min">120</max_time> 
+		<max_time units="min">10080</max_time> 
 		<time_units>min</time_units>
 		<space_units>micron</space_units>
 	

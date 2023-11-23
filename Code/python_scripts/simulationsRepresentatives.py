@@ -30,7 +30,7 @@ import math
 python_script_folder = os.getcwd()
 code_folder = os.path.dirname(python_script_folder)
 patients_folder = code_folder+'/patientsCSV'
-errorFilePath = python_script_folder+"/simulationsCellsRepresentatives20230822.txt"
+errorFilePath = python_script_folder+"/simulationsCellsRepresentativesErrors.txt"
 
 #os._exit(os.EX_OK)
 
@@ -114,15 +114,12 @@ for nPatient in range(len(patient)):
                 shutil.rmtree(output_dir)
 
             #create the output directory
-            #os.mkdir("output_"+px_nbr)
-            #os.mkdir("output_"+px_nbr+"/"+file_name_main)
             os.mkdir(output_dir)
 
             #change the working directory
             os.chdir('config/')
 
             #copy the template file into the new project file
-            #shutil.copyfile('~/PhysiCell/sample_projects/'+proj+'/config'+template_file+xml_extension,file_name+xml_extension)
             shutil.copyfile(template_file+xml_extension,file_name+xml_extension)
 
             #-------------this is where you parse through and modify your xml file as needed-------------

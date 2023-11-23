@@ -1562,15 +1562,10 @@ std::vector<std::string> colouring( Cell* pCell )
 	//dead
 	if(pCell->phenotype.death.dead == true)
 	{
-		//output[0] = "rgb(255, 255, 224)";
-		//output[1] = "rgb(255, 255, 224)";
-		//output[2] = "rgb(255, 228, 181)";
-		//output[3] = "rgb(255, 228, 181)";
-
-		output[0] = "rgb(255,255,255)";//"white
-		output[1] = "rgb(255,255,255)";;
-		output[2] = "rgb(255,255,255)";;
-		output[3] = "rgb(255, 255, 255)";
+		output[0] = "rgb(255, 255, 224)";
+		output[1] = "rgb(255, 255, 224)";
+		output[2] = "rgb(255, 228, 181)";
+		output[3] = "rgb(255, 228, 181)";
 		
 		return output; 
 	}	
@@ -1605,27 +1600,17 @@ std::vector<std::string> colouring( Cell* pCell )
 			char szTempString [128]; // ceates a character array that can store 128
 			sprintf( szTempString , "rgb(%u,%u,%u)", 210-oncoprotein1, 180-oncoprotein2, 140-oncoprotein3); // puts oncoprotein, oncoprotein and 255-oncoprotein in place of u u u
 			
-			//output[0].assign( szTempString );
-			//output[1]="brown";
-			//output[2].assign( szTempString );
-			//output[3]="brown";
-
-			output[0] = "rgb(255,255,255)";//"white
-			output[1] = "rgb(255,255,255)";;
-			output[2] = "rgb(255,255,255)";;
-			output[3] = "rgb(255, 255, 255)";
+			output[0].assign( szTempString );
+			output[1]="brown";
+			output[2].assign( szTempString );
+			output[3]="brown";
 			
 			return output;
 		} else {
-			//output[0] = "rgb(104, 55, 99)";//"orchid";//"rgb(255,230,230)";
-			//output[1] = "rgb(104, 55, 99)";
-			//output[2] = "rgb(85, 50, 70)";//"plum";//"rgb(255,230,230)";
-			//output[3] = "rgb(85, 50, 70)";
-
-			output[0] = "rgb(255,255,255)";//"white
-			output[1] = "rgb(255,255,255)";;
-			output[2] = "rgb(255,255,255)";;
-			output[3] = "rgb(255, 255, 255)";
+			output[0] = "rgb(104, 55, 99)";//"orchid";//"rgb(255,230,230)";
+			output[1] = "rgb(104, 55, 99)";
+			output[2] = "rgb(85, 50, 70)";//"plum";//"rgb(255,230,230)";
+			output[3] = "rgb(85, 50, 70)";
 
 			return output; 
 		}
@@ -1647,28 +1632,18 @@ std::vector<std::string> colouring( Cell* pCell )
 	}
 	else if(pCell->type == 4) //STROMA
 	{ 
-		//output[0] = "rgb(234, 172, 199)";
-		//output[1] = "rgb(234, 172, 199)";
-		//output[2] = "rgb(243, 186, 211)";
-		//output[3] = "rgb(243, 186, 211)";
-
-		output[0] = "rgb(255,255,255)";//"white
-		output[1] = "rgb(255,255,255)";;
-		output[2] = "rgb(255,255,255)";;
-		output[3] = "rgb(255, 255, 255)";		
+		output[0] = "rgb(234, 172, 199)";
+		output[1] = "rgb(234, 172, 199)";
+		output[2] = "rgb(243, 186, 211)";
+		output[3] = "rgb(243, 186, 211)";		
 		return output; 
 	}
 	else if(pCell->type == 5) //MACROPHAGE
 	{
-		//output[0] = "green";
-		//output[1] = "green";
-		//output[2] = "green";
-		//output[3] = "green";	
-
-		output[0] = "rgb(255,255,255)";//"white
-		output[1] = "rgb(255,255,255)";;
-		output[2] = "rgb(255,255,255)";;
-		output[3] = "rgb(255, 255, 255)";		
+		output[0] = "green";
+		output[1] = "green";
+		output[2] = "green";
+		output[3] = "green";		
 		return output; 
 	}
 	return output;
