@@ -1,0 +1,1468 @@
+
+29/08/2023 10:40: Starting simulations
+29/08/2023 10:40: now running simulation 1 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 1
+29/08/2023 14:40: now running simulation 2 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 2
+29/08/2023 18:08: now running simulation 3 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 3
+29/08/2023 22:10: now running simulation 4 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 4
+30/08/2023 00:18: now running simulation 5 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 5
+30/08/2023 02:14: now running simulation 6 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 6
+ bottomRepCell completed!
+30/08/2023 04:21: Starting simulations
+30/08/2023 04:21: now running simulation 1 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 1
+30/08/2023 08:32: now running simulation 2 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 2
+30/08/2023 11:23: now running simulation 3 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 3
+30/08/2023 15:29: now running simulation 4 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 4
+30/08/2023 17:54: now running simulation 5 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 5
+30/08/2023 20:15: now running simulation 6 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 6
+ topRepCell completed!
+11/09/2023 15:50: Starting simulations
+11/09/2023 15:50: now running simulation 1 out of 1 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 1
+ topRepCell completed!
+05/10/2023 12:13: Starting simulations
+05/10/2023 12:13: now running simulation 1 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 1
+05/10/2023 12:13: Starting simulations
+05/10/2023 12:14: Starting simulations
+05/10/2023 12:14: now running simulation 1 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 1
+05/10/2023 12:17: Starting simulations
+05/10/2023 12:17: now running simulation 1 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 1
+05/10/2023 13:24: Starting simulations
+05/10/2023 13:24: now running simulation 1 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 1
+05/10/2023 14:47: now running simulation 2 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 2
+05/10/2023 16:00: now running simulation 3 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 3
+05/10/2023 17:20: now running simulation 4 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 4
+05/10/2023 18:31: now running simulation 5 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 5
+05/10/2023 19:35: now running simulation 6 out of 6 for bottomRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient bottomRepCell simulation 6
+ bottomRepCell completed!
+05/10/2023 20:44: Starting simulations
+05/10/2023 20:44: now running simulation 1 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 1
+05/10/2023 22:10: now running simulation 2 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 2
+05/10/2023 23:24: now running simulation 3 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 3
+06/10/2023 01:01: now running simulation 4 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 4
+06/10/2023 02:23: now running simulation 5 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 5
+06/10/2023 03:30: now running simulation 6 out of 6 for topRepCell
+rm -f *.o
+rm -f project*
+rm -f *.cpp 
+cp Makefile-backup Makefile 
+rm -f ./custom_modules/*
+touch ./custom_modules/empty.txt 
+touch ALL_CITATIONS.txt 
+touch ./core/PhysiCell_cell.cpp
+rm ALL_CITATIONS.txt 
+cp ./config/PhysiCell_settings-backup.xml ./config/PhysiCell_settings.xml 
+touch ./config/empty.csv
+rm -f ./config/*.csv
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/custom_modules/* ./custom_modules/
+touch main.cpp && cp main.cpp main-backup.cpp
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/mainTMZ_ICI_OV.cpp ./main.cpp 
+cp Makefile Makefile-backup
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/Makefile .
+cp ./config/PhysiCell_settings.xml ./config/PhysiCell_settings-backup.xml 
+cp ./sample_projects/GBM_immune_TMZ_ICI_OV/config/* ./config/
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_vector.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_mesh.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_microenvironment.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_solvers.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_matlab.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_basic_agent.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/BioFVM_agent_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./BioFVM/pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_phenotype.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell_container.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_standard_models.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_cell.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_custom.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_utilities.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_constants.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./core/PhysiCell_basic_signaling.cpp 	
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_SVG.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pathology.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_MultiCellDS.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_various_outputs.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_pugixml.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_settings.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./modules/PhysiCell_geometry.cpp 
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -c ./custom_modules/GBM_TMZ_ICI_OV.cpp
+g++ -march=native  -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11  -o project BioFVM_vector.o BioFVM_mesh.o BioFVM_microenvironment.o BioFVM_solvers.o BioFVM_matlab.o BioFVM_utilities.o BioFVM_basic_agent.o BioFVM_MultiCellDS.o BioFVM_agent_container.o   pugixml.o PhysiCell_phenotype.o PhysiCell_cell_container.o PhysiCell_standard_models.o PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o PhysiCell_basic_signaling.o PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o GBM_TMZ_ICI_OV.o main.cpp 
+
+
+
+
+ Project created for patient topRepCell simulation 6
+ topRepCell completed!

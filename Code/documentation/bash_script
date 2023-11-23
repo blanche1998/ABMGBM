@@ -1,0 +1,15 @@
+#!/bin/bash
+module load python/3.10.1
+
+pip3 install --upgrade pip
+
+python3.10 -m pip install scipy
+
+proj=$1
+
+#module load python/3.10.1
+
+cd python_scripts
+
+#we redirect the output to a file so that we can keep track of what simulation we are running
+python3.10 simulations.py $proj >> 'bash_error.txt'
