@@ -22,3 +22,6 @@ column 3: z-position **this is set to 0 as we are simulating in 2D**
 column 4: cell type (1=CD4 T cell, 2=Tumor cell, 3=CD8 T cell, 4=Stroma, 5=Macrophage)
 
 If this is saved as **patientX.csv**, then on **line 62** of the simulationsRepresentatives.py file, add **patientX** to the array (do not include the ".csv"). If you don't want to run the simulations for the two virtual representatives, you can delete them from the array. 
+
+### Using MATLAB to visualise results
+The **matlab** folder contains a few function that might be useful to analyse the output files of a simulation. Refer to http://www.mathcancer.org/blog/working-with-physicell-snapshots-in-matlab/ to learn how to use them. 
