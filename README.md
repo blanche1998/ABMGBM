@@ -1,5 +1,4 @@
-# ABMGBM
-Treating glioblastoma treatment with immunotherapies: Spatial computational modelling illuminates the role of the tumour microenvironment
+# Treating glioblastoma treatment with immunotherapies: Spatial computational modelling illuminates the role of the tumour microenvironment
 Author of the README file: Blanche Mongeon, Université de Montréal, blanche.mongeon@umontreal.ca
 
 ## Basic information about the code and how to use it
