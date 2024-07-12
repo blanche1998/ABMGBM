@@ -9,8 +9,8 @@ Time course data are over 7 days and contain 85 hourly timepoints, from 0 to 168
 
 **initialCellDistributionsPatients.mat** contain the initial cell distributions for all 6 patients. It is a 6x5 array, where initialCellDistributionsPatients(i,j) contains the fraction of initial cells for patient i that are of type j. Similarly, **initialCellDistributionsVirtualPatients.mat** contain the initial cell distributions for our two virtual patients. It is a 2x5 array, where initialCellDistributionsPatients(i,j) contains the fraction of initial cells for patient i that are of type j. 
 
-**characteristics.mat** contains the data from panel A in Figure 3 _not min-max normalized_. To get the min-max normalized value, 
-
+**characteristics.mat** contains the data from panel A in Figure 3 _not min-max normalized_. To get the min-max normalized value, one can follow the following pseudocode:
+```
 maxR = size(characteristics,1);
 
 maxC = size(characteristics,2);
@@ -32,16 +32,13 @@ for j=1:maxC
     end for
 
 end for
-
+```
 
 
 The **patientsCSV** folder contains the CSV files with the cell specifications for the bottomRepresentative (no adaptive immune system) and the topRepresentative. 
 The **simulationsRepresentatives.py** file in the **python_scripts** folder executes 3 runs of each treatment combination analysed (none, TMZ, ICI, OV, OV+ICI, OV+ICI+TMZ) for each of the virtual patients. To run the file, you can use the command line
 ```
 python3.10 simulations.py project
-for n=1:j
-allo
-    coucou
 ```
 with **python_scripts** as your working directory. You have to make sure that python/3.10.1 is loaded before.
 
