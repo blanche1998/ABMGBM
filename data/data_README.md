@@ -1,5 +1,3 @@
-\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
-
 # Treating glioblastoma treatment with immunotherapies: Spatial computational modelling illuminates the role of the tumour microenvironment
 Author of the README file: Blanche Mongeon, Université de Montréal, blanche.mongeon@umontreal.ca
 
@@ -13,27 +11,17 @@ Time course data are over 7 days and contain 85 hourly timepoints, from 0 to 168
 
 **characteristics.mat** contains the data from panel A in Figure 3 _not min-max normalized_. To get the min-max normalized value, 
 
-# Algorithm 1
-Just a sample algorithmn
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\SetAlgoLined
-\KwResult{Write here the result}
-\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
-\Input{Write here the input}
-\Output{Write here the output}
-\BlankLine
-\While{While condition}{
-    instructions\;
-    \eIf{condition}{
-        instructions1\;
-        instructions2\;
-    }{
-        instructions3\;
-    }
-}
-\caption{While loop with If/Else condition}
-\end{algorithm}
+maxR = size(characteristics,1);
+maxC = size(characteristics,2);
+for j=1:maxC
+    max = max(characteristics(:,j)); 
+    min = min(characteristics(:,j));
+    for i=1:maxR
+        currentVal = characteristics(i,j);
+        normVal = (currentVal-min)./(max-min);
+        characteristics(i,j) = normVal;
+    end for
+end for
 
 
 
